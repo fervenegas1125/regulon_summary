@@ -20,6 +20,16 @@ parser.add_argument(
     help="Número mínimo de genes para incluir en el resumen.",
 )
 
+parser.add_argument(
+    "-t",
+    "--type",
+    type=str,
+    description="Tipo de TF a incluir en el resumen",
+    choices=["activator", "repressor", "dual", "all"],
+    default="all",
+    help="Tipo de regulador para filtrar en el resumen",
+)
+
 # Leyendo los argumentos
 args = parser.parse_args()
 
@@ -30,3 +40,4 @@ output_filename = args.output_file
 print(f"Archivo de entrada: {filename}")
 print(f"Archivo de salida: {output_filename}")
 print(f"Número mínimo de genes: {args.min_genes}")
+print(f"Tipo de regulador: {args.type}")
